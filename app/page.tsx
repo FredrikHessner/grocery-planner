@@ -1,8 +1,14 @@
+import prisma from "@/lib/db";
 
-export default function Home() {
+export default async function Home() {
+  const tasks = await prisma.task.findMany();
+
   return (
     <main>
-      Hello World
+      <div>
+
+      </div>
+      Hello Worlds
     </main>
   )
 }
