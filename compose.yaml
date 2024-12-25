@@ -7,6 +7,10 @@ services:
       - "3000:3000"
     environment:
       NODE_ENV: development
+    depends_on:
+      - db
+    env_file:
+      - .env
     develop:
       watch:
         - action: sync
@@ -19,6 +23,10 @@ services:
   db:
     image: postgres
     environment:
-      POSTGRES_PASSWORD: examples
+      POSTGRES_USER: $POSTGRES_USER
+      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+      POSTGRES_DB: $POSTGRES_DB
     ports:
       - "5432:5432"
+    env_file:
+      - .env
