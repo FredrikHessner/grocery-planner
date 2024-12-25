@@ -1,6 +1,6 @@
 "use client";
 
-import { addGrocery} from "../components/actions";
+import { addGrocery} from "./actions";
 
 export default function Form() {
     return (

@@ -1,6 +1,6 @@
 
 import prisma from "@/lib/db";
-import Form from "../components/form";
+import Form from "../components/grocery-form";
 import DeleteBtn from "../components/delete-btn";
 
 export default async function Groceries() {
@@ -11,6 +11,11 @@ export default async function Groceries() {
     {/* Header Section */}
     <div className="bg-white shadow-md rounded-md p-6 mb-6 w-3/4 max-w-xl text-center">
       <h1 className="text-3xl font-bold text-gray-800">Groceries</h1>
+    </div>
+
+    {/* Form Section */}
+    <div className="bg-white shadow-md rounded-md w-3/4 max-w-xl p-6 mt-6">
+        <Form/>
     </div>
 
     {/* Groceries List */}
@@ -31,11 +36,6 @@ export default async function Groceries() {
         </li>
       ))}
     </ul>
-
-    {/* Form Section */}
-    <div className="bg-white shadow-md rounded-md w-3/4 max-w-xl p-6 mt-6">
-      <Form/>
-    </div>
   </div>
 
   )

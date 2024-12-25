@@ -22,3 +22,20 @@ export async function removeGrocery({item}) {
 
     revalidatePath("/");
 }
+
+export async function addRecipe(formData: FormData) { 
+    await prisma.recipes.create({
+        data: {
+            name: formData.get("name") as string,
+            description: formData.get("description") as string,
+            instructions: formData.get("instructions") as string,
+            prep_time: Number(formData.get("prep_time")),
+            cook_time: Number(formData.get("cook_time")),
+            servings: Number(formData.get("servings")),
+            difficulty: formData.get("difficulty") as string,
+
+        },
+    });
+
+    revalidatePath("/");
+}
